@@ -1,416 +1,668 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+html{
+    scroll-behavior:smooth;
+}
 
-<title>Happy Girlfriend Day ❤️</title>
+body{
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+    color:white;
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    background:linear-gradient(
+        to bottom,
+        #1b0034,
+        #5b0060,
+        #ff5e78,
+        #ffb56b
+    );
+}
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
 
-<link rel="stylesheet" href="style.css">
-<style>
+/* Stars */
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    pointer-events:none;
+    background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+    background-size:90px 90px;
+    opacity:.25;
+    animation:twinkle 5s linear infinite;
+}
+
+@keyframes twinkle{
+    0%{opacity:.2;}
+    50%{opacity:.4;}
+    100%{opacity:.2;}
+}
+
+/* Floating Hearts */
+
+#hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.heart{
+    position:absolute;
+    color:#ff3b7d;
+    animation:float 10s linear infinite;
+    opacity:.7;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh) scale(.5);
+    }
+
+    to{
+        transform:translateY(-120vh) scale(1.5);
+    }
+}
+
+/* Hero */
+
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.title{
+    font-size:65px;
+    font-family:'Great Vibes',cursive;
+    text-shadow:0 0 20px rgba(255,255,255,.8);
+}
+
+.name{
+    margin-top:15px;
+    font-size:45px;
+    animation:heartbeat 1.4s infinite;
+}
+
+.subtitle{
+    margin-top:25px;
+    font-size:22px;
+    opacity:.95;
+}
+
+.btn{
+    margin-top:40px;
+    text-decoration:none;
+    color:white;
+    padding:18px 45px;
+    border-radius:50px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.4);
+    transition:.4s;
+}
+
+.btn:hover{
+    background:white;
+    color:#ff3b7d;
+    transform:scale(1.08);
+}
+
+@keyframes heartbeat{
+
+    0%{transform:scale(1);}
+
+    25%{transform:scale(1.12);}
+
+    50%{transform:scale(.96);}
+
+    75%{transform:scale(1.15);}
+
+    100%{transform:scale(1);}
+}
+
+/* Glass Card */
+
+.glass{
+    width:90%;
+    max-width:950px;
+    margin:60px auto;
+    padding:45px;
+    background:rgba(255,255,255,.14);
+    backdrop-filter:blur(25px);
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,.35);
+    box-shadow:0 8px 40px rgba(0,0,0,.25);
+}
+
+.glass h2{
+    text-align:center;
+    margin-bottom:35px;
+    font-size:42px;
+    font-family:'Great Vibes',cursive;
+}
+
+.glass p{
+    margin:25px 0;
+    line-height:2;
+    font-size:19px;
+}
+
+.quote{
+    text-align:center;
+    margin-top:45px;
+    font-size:36px;
+    color:#fff3f8;
+}
+
+.ending{
+    text-align:center;
+    margin-top:40px;
+    font-size:26px;
+    color:#fff;
+}
+
+/* Memory Section */
+
+.memory{
+    width:90%;
+    margin:auto;
+    padding:70px 0;
+}
+
+.memory h2{
+    text-align:center;
+    margin-bottom:45px;
+    font-size:38px;
+}
+
+.card{
+    margin:25px auto;
+    max-width:700px;
+    padding:28px;
+    text-align:center;
+    border-radius:20px;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(18px);
+    transition:.4s;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.card:hover{
+    transform:translateY(-8px) scale(1.02);
+}
+
+.card p{
+    font-size:22px;
+    line-height:1.8;
+}
+
+/* Photo */
+
+.photo{
+    padding:70px 20px;
+    text-align:center;
+}
+
+.photo h2{
+    font-size:40px;
+    margin-bottom:30px;
+}
+
+.photo-box{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    padding:20px;
+    border-radius:20px;
+    backdrop-filter:blur(18px);
+}
+
+.photo-box img{
+    width:320px;
+    max-width:100%;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.photo-box p{
+    margin-top:15px;
+}
+
+/* ===========================
+   FINAL SECTION
+=========================== */
+
+.final{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.final h1{
+    font-family:'Great Vibes',cursive;
+    font-size:70px;
+    margin-bottom:25px;
+    text-shadow:0 0 20px rgba(255,255,255,.8);
+}
+
+.final p{
+    max-width:700px;
+    font-size:22px;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+.final .heart{
+    position:relative;
+    font-size:90px;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.25);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+
+    text-align:center;
+    padding:30px;
+
+    font-size:18px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(20px);
+
+}
+
+/* ===========================
+   SCROLL ANIMATION
+=========================== */
+
 .glass,
-.memory,
-.gallery,
-.final {
-    color: #3b1f2b;
+.card,
+.photo-box,
+.final{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:all .8s ease;
+
 }
-.glass h2,
-.memory h2,
-.gallery h2,
-.final h1,
-.quote {
-    color: #8b1e4f;
+
+.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
 }
 
-.glass strong {
-    color: #d63384;
+/* ===========================
+   GLOW EFFECTS
+=========================== */
+
+.title,
+.name,
+.quote{
+
+    animation:glow 3s ease-in-out infinite alternate;
+
 }
-</style>
 
-</head>
+@keyframes glow{
 
-<body>
+    from{
 
-<div id="hearts"></div>
+        text-shadow:
+        0 0 8px white,
+        0 0 18px pink;
 
-<div class="stars"></div>
+    }
 
-<header class="hero">
+    to{
 
-<h1 class="title">
-Happy Girlfriend Day
-</h1>
+        text-shadow:
+        0 0 18px white,
+        0 0 40px hotpink;
 
-<h2 class="name">
-❤️ Aishwarya Siri ❤️
-</h2>
+    }
 
-<p class="subtitle">
-A small corner of my heart made into a website...
-</p>
+}
 
-<a href="#letter" class="btn">
-Read My Heart ❤️
-</a>
+/* ===========================
+   BUTTON EFFECT
+=========================== */
 
-</header>
+.btn{
 
-<section id="letter" class="glass">
+    box-shadow:0 0 20px rgba(255,255,255,.3);
 
-<h2>To Someone Very Special 🌸</h2>
+}
 
-<div class="typing">
+.btn:hover{
 
-<p>
+    box-shadow:
+    0 0 20px white,
+    0 0 40px hotpink;
 
-I know we first met online in 2023.
-Back then, I had a small feeling for you,
-but I wasn't sure what it was.
+}
 
-</p>
+/* ===========================
+   IMAGE HOVER
+=========================== */
 
-<p>
+.photo-box img{
 
-When you came into my life as a friend,
-things slowly started changing for me.
+    transition:.5s;
 
-Your belief in me,
-your encouragement,
-and your support
-gave me confidence during one of the most important phases of my life.
+}
 
-I'll always believe you brought good luck into my life because,
-with your support,
-I achieved one of my biggest dreams—
-getting admission to IIT.
+.photo-box img:hover{
 
-I'll always be thankful for that.
+    transform:scale(1.05);
 
-</p>
+}
 
-<p>
+/* ===========================
+   RESPONSIVE
+=========================== */
 
-Over the last two years,
-I realized that what I felt wasn't just friendship.
+@media(max-width:900px){
 
-My feelings for you became stronger with time,
-and today I can honestly say...
+.title{
 
-<strong>I really like you.</strong>
+    font-size:52px;
 
-</p>
+}
 
-<p>
+.name{
 
-I know we come from different states,
-different cultures,
-and that relationships like this aren't always easy.
+    font-size:35px;
 
-But some people are worth taking a chance on,
+}
 
-and for me...
+.glass{
 
-<strong>You're one of them.</strong>
+    padding:30px;
 
-</p>
+}
 
-<p>
+.glass h2{
 
-Meeting you in Bangalore made me even more certain about my feelings.
+    font-size:35px;
 
-Those two days were truly special to me.
+}
 
-I still remember your beautiful smile,
-your expressive eyes,
-and especially your voice.
+.glass p{
 
-Being with you felt peaceful,
-and those memories still make me smile.
+    font-size:18px;
 
-</p>
+}
 
-<p>
+.quote{
 
-I'm not asking you to say yes today.
+    font-size:28px;
 
-I just wanted to tell you how I truly feel.
+}
 
-If you're comfortable,
-I'd love the chance to know you even better
-and see where life takes us.
+.final h1{
 
-If you don't feel the same way,
-I'll respect your feelings completely.
+    font-size:55px;
 
-</p>
+}
 
-<p>
+}
 
-I can't promise a perfect life
-or that I'll fulfill every dream you have.
+@media(max-width:600px){
 
-But I can promise
-I'll always give my 100%
-to support your dreams,
+.title{
 
-make your life a little easier whenever I can,
+    font-size:42px;
 
-and always be someone
-you can rely on.
+}
 
-</p>
+.name{
 
-<p>
+    font-size:28px;
 
-I'm just starting my career,
-and I don't have everything figured out yet.
+}
 
-But I'm working hard
-to build a stable future,
+.subtitle{
 
-a good career,
+    font-size:18px;
 
-a home,
+}
 
-and a meaningful life.
+.btn{
 
-I believe that with honesty and hard work,
-everything else can be built over time.
+    padding:15px 35px;
 
-</p>
+}
 
-<p>
+.glass{
 
-There's something else I really admire about you.
+    width:95%;
 
-The love and care you have for your mom
-says a lot about the kind of person you are.
+    padding:22px;
 
-If life ever brings us together,
+}
 
-I'll always respect and care for your family as my own,
+.glass p{
 
-and I'll do my best
-to support them whenever I can.
+    font-size:17px;
 
-</p>
+    line-height:1.8;
 
-<p>
+}
 
-I'm also trying to build my career in Bangalore,
+.quote{
 
-because I genuinely like the city
+    font-size:24px;
 
-and can imagine building my future there.
+}
 
-Maybe one day
+.memory h2{
 
-our paths will meet there again.
+    font-size:30px;
 
-</p>
+}
 
-<p>
+.card p{
 
-Whatever your answer is,
+    font-size:18px;
 
-thank you for being such an important part of my life.
+}
 
-You've inspired me
-more than you probably realize,
+.photo h2{
 
-and I'll always be grateful for that.
+    font-size:30px;
 
-</p>
+}
 
-<p>
+.final h1{
 
-And just one last thing...
+    font-size:42px;
 
-</p>
+}
 
-<h2 class="quote">
+.final p{
 
-"If you ever decide to hold my hand,
+    font-size:18px;
 
-I'll do my best every single day
+}
 
-to make sure you never regret that decision."
+footer{
 
-</h2>
+    font-size:15px;
 
-<h3 class="ending">
+}
 
-Take your time.
+}
 
-There is no pressure at all.
+/* ===========================
+   SCROLL BAR
+=========================== */
 
-I just wanted you to know
+::-webkit-scrollbar{
 
-what's in my heart.
+    width:10px;
 
-❤️
+}
 
-</h3>
+::-webkit-scrollbar-track{
 
-</div>
+    background:#ffd9e7;
 
-</section>
+}
 
-<section class="memory">
+::-webkit-scrollbar-thumb{
 
-<h2>✨ Every Beginning Has A Beautiful Story ✨</h2>
+    background:#ff5d9e;
 
-<div class="card">
+    border-radius:20px;
 
-<p>
+}
 
-2023
+::-webkit-scrollbar-thumb:hover{
 
-We met online.
+    background:#ff2f7b;
 
-❤️
+}
 
-</p>
+/* ==========================
+   Photo Gallery
+========================== */
 
-</div>
+.gallery{
 
-<div class="card">
+    width:90%;
+    margin:auto;
+    padding:80px 0;
 
-<p>
+    text-align:center;
 
-2024–2025
+}
 
-Friendship became one of
-the best parts of my life.
+.gallery h2{
 
-🌸
+    font-size:50px;
+    margin-bottom:20px;
+    font-family:'Great Vibes',cursive;
 
-</p>
+}
 
-</div>
+.gallery-text{
 
-<div class="card">
+    font-size:20px;
+    margin-bottom:50px;
+    color:white;
 
-<p>
+}
 
-Bangalore
+.gallery-grid{
 
-Meeting you made everything
-feel even more real.
+    display:grid;
 
-✨
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
-</p>
+    gap:30px;
 
-</div>
+}
 
-<div class="card">
+.gallery-item{
 
-<p>
+    background:rgba(255,255,255,.15);
 
-Today
+    backdrop-filter:blur(20px);
 
-I simply wanted to tell you
+    border-radius:20px;
 
-how much you mean to me.
+    overflow:hidden;
 
-❤️
+    transition:.5s;
 
-</p>
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
 
-</div>
+}
 
-</section>
+.gallery-item:hover{
 
-<section class="gallery">
+    transform:translateY(-10px) scale(1.03);
 
-    <h2>❤️ Our Beautiful Memories ❤️</h2>
-    <p class="gallery-note">
-      Sorry for using your some Instagram photos without asking first. ❤️<br>
-      
-    </p>
+}
 
-    <p class="gallery-text">
-        Every picture reminds me of a beautiful moment.
-        Thank you for making these memories so special.
-    </p>
+.gallery-item img{
 
-    <div class="gallery-grid">
+    width:100%;
 
-        <div class="gallery-item">
-            <img src="image/photo1.jpg" alt="Memory 1">
-            <span>Beautiful Smile ❤️ </span>
-        </div>
+    height:350px;
 
-        <div class="gallery-item">
-            <img src="image/photo4.jpg" alt="Memory 2">
-            <span>Cute 🌸</span>
-        </div>
+    object-fit:cover;
 
-        <div class="gallery-item">
-            <img src="image/photo5.jpg" alt="Memory 3">
-            <span>Crazy✨</span>
-        </div>
+    transition:.6s;
 
-        <div class="gallery-item">
-            <img src="image/photo6.jpg" alt="Memory 4">
-            <span>One of My Favorite 💕</span>
-        </div>
+}
 
-        <div class="gallery-item">
-            <img src="image/photo3.jpg" alt="Memory 5">
-            <span> Bangalore Memories ✨</span>
-        </div>
+.gallery-item:hover img{
 
-        <div class="gallery-item">
-            <img src="image/photo2.jpg" alt="Memory 6">
-            <span>Forever Grateful 🫂</span>
-        </div>
+    transform:scale(1.08);
 
-    </div>
+}
 
-</section>
+.gallery-item span{
 
-<section class="final">
+    display:block;
 
-<h1>
+    padding:18px;
 
-Happy Girlfriend Day
+    font-size:20px;
 
-Aishwarya ❤️
+    font-weight:500;
 
-</h1>
-
-<p>
-
-No matter what your answer is...
-
-Thank you for existing.
-
-You made my world brighter.
-
-🌹
-
-</p>
-❤️
-
-</div>
-
-</section>
-
-<footer>
-
-Made with ❤️ by Kanhaiya Jaiswal
-
-</footer>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+}
